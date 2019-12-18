@@ -170,8 +170,20 @@ kubernetes-dashboard   NodePort    10.1.11.190   <none>        443:32459/TCP    
 kubectl apply -f ingress-nginx.yaml
 ```
 # check ingress
-+ check the status of pod
 ```
 kubectl  get pod -n ingress-nginx
+  output:
+      NAME                                        READY   STATUS    RESTARTS   AGE
+      nginx-ingress-controller-79f6884cf6-q9sh2   1/1     Running   0          7m17s
+
+kubectl  logs nginx-ingress-controller-79f6884cf6-q9sh2  -n ingress-nginx
+```
++ check port of ingress
+```
+kubectl  get svc -n ingress-nginx
+     output:
+         NAME            TYPE       CLUSTER-IP    EXTERNAL-IP   PORT(S)                      AGE
+         ingress-nginx   NodePort   10.1.25.188   <none>        80:31796/TCP,443:32313/TCP   9m4s
+
 ```
 
