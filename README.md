@@ -1,9 +1,9 @@
 # install kubernetes with kubeadm
 ### the design of cluster
 ```
-k8s-master	192.168.56.12	
-k8s-node1	192.168.56.13
-k8s-node2	192.168.56.14
+k8s-master	192.168.0.2	
+k8s-node1	192.168.0.3
+k8s-node2	192.168.0.4
 ```
 ### prepare installation environment  (k8s-master, k8s-node1, k8s-node2)
 + close swap, firewalld and selinux
@@ -19,9 +19,9 @@ edit /etc/fstab to commont the code of swap
 + configure the hosts and sync to all nodes
 ```
 cat << EOF > /etc/hosts
-192.168.56.12 k8s-master
-192.168.56.13 k8s-node
-192.168.56.14 k8s-node2
+192.168.0.2 k8s-master
+192.168.0.3 k8s-node
+192.168.0.4 k8s-node2
 EOF
 ```
 + open traffic forwarding
@@ -61,21 +61,21 @@ yum install -y kubelet-1.15.0 kubeadm-1.15.0 kubectl-1.15.0
 + on the master node(k8s-master)
 ```
 kubeadm init \
-  --apiserver-advertise-address=192.168.56.12 \
+  --apiserver-advertise-address=192.168.0.2 \
   --kubernetes-version v1.15.0 \
   --service-cidr=10.1.0.0/16 \
   --pod-network-cidr=10.244.0.0/16
   
  If you can't access foreign websites:
   kubeadm init \
-  --apiserver-advertise-address=192.168.56.12 \
+  --apiserver-advertise-address=192.168.0.2 \
   --image-repository registry.aliyuncs.com/google_containers \
   --kubernetes-version v1.15.0 \
   --service-cidr=10.1.0.0/16 \
   --pod-network-cidr=10.244.0.0/16
 
 the step will output:
-  kubeadm join 192.168.56.12:6443 --token japatq.5vib0jhpgmeeqsb2 \
+  kubeadm join 192.168.0.2:6443 --token japatq.5vib0jhpgmeeqsb2 \
     --discovery-token-ca-cert-hash sha256:c08f2729dbe9e2b1ce9f44e6d3159c493cc686b2e93dc252f7658cb26b87d726
   
 ```
