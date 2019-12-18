@@ -132,6 +132,28 @@ yum install -y https://us.download.nvidia.cn/tesla/418.67/nvidia-diag-driver-loc
 yum install -y kernel-devel-$(uname -r) kernel-headers-$(uname -r) gcc gcc-c++
 yum install -y cuda-drivers
 ```
++ install nvidia-docker
+```
+  distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+  curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.repo |   sudo tee /etc/yum.repos.d/nvidia-docker.repo
+  yum install -y nvidia-docker2
+```
++ configure docker
+```
+ cat > /etc/docker/daemon.json <<EOF
+ {
+    "default-runtime": "nvidia",
+    "runtimes": {
+        "nvidia": {
+            "path": "/usr/bin/nvidia-container-runtime",
+            "runtimeArgs": []
+        }
+    }
+}
+EOF  
+
+systemctl restart docker
+```
 + install the plugin of gpu
 ```
 kubectl apply -f nvidia-device-plugin.yml
