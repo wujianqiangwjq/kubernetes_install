@@ -142,3 +142,24 @@ cd ..
 ```
 kubectl apply -f kubernetes-dashboard.yaml
 ```
+# check kubernetes-dashboard
++ get secret for bashboard
+```
+kubectl describe secret $(kubectl  describe sa kubernetes-dashboard  -n kube-system|grep Tokens|awk '{print $NF}') -n kube-system
+output:
+.....
+ca.crt:     1025 bytes
+namespace:  11 bytes
+token:      eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJrdWJlLXN5c3RlbSIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJrdWJlcm5ldGVzLWRhc2hib2FyZC10b2tlbi05cXg4biIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50Lm5hbWUiOiJrdWJlcm5ldGVzLWRhc2hib2FyZCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50LnVpZCI6IjRhNTE2ZGIzLWJiMmQtNDZlZS04NmZlLWE5ODBiOGQxNDFiYyIsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDprdWJlLXN5c3RlbTprdWJlcm5ldGVzLWRhc2hib2FyZCJ9.UxUPydr4nmU0Yr7dXbbqjYNV8bRuBA2hWN3Fe3DW9viUSrjbGn_iqBWGIh6MFS_GRyfxOiH1l9WFatu52iJf5GzjQnaCSGCqFI0jA9iytnOUYw68iAl9krOuo1O9MocwV-uwPWK8ULSWloRZODnftiwH_gT9cF-dt8s9nCDO7lxcIjcDCbNdW9TVArDEdMgajWUqOQjhvnY5KalGbk2X1qyv4rwTF82GSQIslvhdW3TDrfEv7whcaUfPCvDIeVKUMJU93aLMSCWqDYsMLurY7jk536ezulyGn3e1WyUXD8ax1r20QiI2P-vwIMYfoT0miMAt3dTjEqsV_DAsjZzT7Q
+```
++ get port for dashboard
+```
+kubectl  get svc -n kube-system
+output:
+
+NAME                   TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)                  AGE
+kube-dns               ClusterIP   10.1.0.10     <none>        53/UDP,53/TCP,9153/TCP   164m
+kubernetes-dashboard   NodePort    10.1.11.190   <none>        443:32459/TCP            10m
+```
++ log in the dashboard
+
