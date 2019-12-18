@@ -163,4 +163,5 @@ kubernetes-dashboard   NodePort    10.1.11.190   <none>        443:32459/TCP    
 ```
 + log in the dashboard
 ![image](https://github.com/wujianqiangwjq/kubernetes_installl/blob/master/images/kubernetes-dashboard.JPG)
+![image](https://github.com/wujianqiangwjq/kubernetes_installl/blob/master/images/dashboard1.JPG)
 
