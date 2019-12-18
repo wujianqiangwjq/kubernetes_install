@@ -162,4 +162,5 @@ kube-dns               ClusterIP   10.1.0.10     <none>        53/UDP,53/TCP,915
 kubernetes-dashboard   NodePort    10.1.11.190   <none>        443:32459/TCP            10m
 ```
 + log in the dashboard
+![image](https://github.com/wujianqiangwjq/kubernetes_installl/blob/master/images/kubernetes-dashboard.JPG)
 
