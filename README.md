@@ -121,7 +121,10 @@ on the node of k8s-node2:    ping   10.244.2.2
 ```
 kubectl taint nodes --all node-role.kubernetes.io/master-
 ```
-
+# set service (k8s-master, k8s-node1, k8s-node2)
+```
+systemctl enabel kubelet
+```
 # install the plugin of GPU(nvidia)
 + install nvidia driver(k8s-node2)
 ```
