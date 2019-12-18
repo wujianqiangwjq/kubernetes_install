@@ -117,9 +117,9 @@ on the node of k8s-master:   ping   10.244.2.2
 on the node of k8s-node1:    ping   10.244.2.2
 on the node of k8s-node2:    ping   10.244.2.2
 ```
-# delete master node
+# if you want to make the master node to be schedulered
 ```
-kubectl delete node k8s-master
+kubectl taint nodes --all node-role.kubernetes.io/master-
 ```
 
 # install the plugin of GPU(nvidia)
