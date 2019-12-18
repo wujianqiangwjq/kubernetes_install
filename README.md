@@ -183,7 +183,7 @@ kubectl  get pod -n ingress-nginx
 
 kubectl  logs nginx-ingress-controller-79f6884cf6-q9sh2  -n ingress-nginx
 ```
-+ check port of ingress
++ check the port of ingress
 ```
 kubectl  get svc -n ingress-nginx
      output:
