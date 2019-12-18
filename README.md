@@ -117,6 +117,11 @@ on the node of k8s-master:   ping   10.244.2.2
 on the node of k8s-node1:    ping   10.244.2.2
 on the node of k8s-node2:    ping   10.244.2.2
 ```
+# delete master node
+```
+kubectl delete node k8s-master
+```
+
 # install the plugin of GPU(nvidia)
 + install nvidia driver(k8s-node2)
 ```
