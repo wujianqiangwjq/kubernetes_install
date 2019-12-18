@@ -128,3 +128,17 @@ yum install -y cuda-drivers
 ```
 kubectl apply -f nvidia-device-plugin.yml
 ```
+# install the kubernetes-dashboard
++ prepare secrets (k8s-master)
+```
+mkdir  dashboard
+cd dashboard
+    openssl req -nodes -newkey rsa:2048 -keyout dashboard.key -out dashboard.csr -subj "/C=/ST=/L=/O=/OU=/CN=kubernetes-dashboard"
+    openssl x509 -req -sha256 -days 365 -in dashboard.csr -signkey dashboard.key -out dashboard.crt 
+cd ..
+ kubectl create secret generic kubernetes-dashboard-certs --from-file=dashboard -n kube-system
+```
++ install kubernetes-dashboard
+```
+kubectl apply -f kubernetes-dashboard.yaml
+```
