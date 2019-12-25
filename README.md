@@ -54,6 +54,7 @@ yum makecache
 + install  docker and kubernetes (k8s-master, k8s-node1, k8s-node2)
 ```
 yum -y install docker-ce
+systemctl enable docker
 systemctl start docker
 yum install -y kubelet-1.15.0 kubeadm-1.15.0 kubectl-1.15.0
 ```
