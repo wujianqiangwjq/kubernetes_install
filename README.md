@@ -104,6 +104,7 @@ output:
       k8s-master  Ready    master   6m34s   v1.15.0
       k8s-node1   Ready    <none>   2m33s   v1.15.0
       k8s-node2   Ready    <none>   2m11s   v1.15.0
+or: kubectl get nodes,cs      
       
 ```
 + check the network of flannel
