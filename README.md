@@ -1,5 +1,5 @@
 # install kubernetes with kubeadm
-### the design of cluster
+### the design of the cluster
 ```
 k8s-master	192.168.0.2	
 k8s-node1	192.168.0.3
