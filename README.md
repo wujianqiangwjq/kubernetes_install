@@ -243,3 +243,20 @@ download site: https://github.com/goharbor/harbor/releases
 ```
 docker-compose up -d 
 ```
+# configure the private registry for the docker
++ add configuration for example (path:/etc/docker/daemon.json) registry site: 10.240.212.106
+```
+{"insecure-registries":["10.240.212.106"] }
+```
++ restart docker
+```
+systemctl restart docker
+```
++ check the registry
+```
+docker info 
+....
+Insecure Registries:
+  10.240.212.106
+  127.0.0.0/8
+```
