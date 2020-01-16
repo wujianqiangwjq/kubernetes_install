@@ -1,5 +1,5 @@
-# create a user of the kubernetes which name is "wujq" for the lico  
-+ create a namespace(master node)
+# create a user of the kubernetes for the lico  
++ create a namespace of wujq(master node)
 ```
    kubectl create ns wujq
 ```
