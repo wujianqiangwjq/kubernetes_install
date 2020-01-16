@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: wujq-pv
+spec:
+  capacity:
+    storage: 20Gi
+  accessModes:
+    - ReadWriteMany
+  storageClassName: wujq-pv-class
+  nfs:
+    server: 10.240.208.138
+    path: /home/wujq
