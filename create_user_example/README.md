@@ -3,7 +3,7 @@
 ```
    kubectl create ns wujq
 ```
-+ modify the server and  path of nfs  for pv
++ modify the server and  path of nfs  for the hpcuser_pv.yaml (copy the directory of create_user_example to the master node)
 ```
 cd  create_user_example
 cat hpcuser_pv.yaml
