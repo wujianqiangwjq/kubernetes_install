@@ -218,4 +218,18 @@ kubectl  get svc -n ingress-nginx
          ingress-nginx   NodePort   10.1.25.188   <none>        80:31796/TCP,443:32313/TCP   9m4s
 
 ```
+#  install the registry(harbor) 
+notice: the harbor will occupy the ports 443 and 80 and the lico will occupy the port 443. It's best to install the lico and harbor on the different nodes.
++ download harbor
+```
+download site: https://github.com/goharbor/harbor/releases
+```
++ main configuration files
+```
+  harbor.yml
+  hostname:
+  harbor_admin_password
+  https
+  data_volume
+```
 
