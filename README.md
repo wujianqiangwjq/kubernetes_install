@@ -227,9 +227,19 @@ download site: https://github.com/goharbor/harbor/releases
 + main configuration files
 ```
   harbor.yml
-  hostname:
-  harbor_admin_password
-  https
-  data_volume
 ```
-
++ main items
+```
+  hostname:
+  harbor_admin_password:
+  https:
+  data_volume:
+```
++ install
+```
+./install
+```
++ startup the server
+```
+docker-compose up -d 
+```
