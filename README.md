@@ -56,7 +56,7 @@ yum makecache
 yum -y install docker-ce
 systemctl enable docker
 systemctl start docker
-yum install -y kubelet-1.15.0 kubeadm-1.15.0 kubectl-1.15.0
+yum install -y kubelet-1.14.0 kubeadm-1.14.0 kubectl-1.14.0
 ```
 # configure the cluster of kubernetes
 + on the master node(k8s-master)
