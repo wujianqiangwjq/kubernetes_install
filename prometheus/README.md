@@ -12,8 +12,8 @@
 + *tar -xf v0.3.0.tar.gz*
 + *cd  kube-prometheus-0.3.0*
 + *创建CRD: kubectl create -f manifests/setup*
-+ "kubectl create -f manifests/setup -f manifests"
-+ "这时会建一个monitoring的namespace,检查pod运行状态,一切正常时，将一些type改为NodePort"
++ *kubectl create -f manifests/setup -f manifests*
++ *这时会建一个monitoring的namespace,检查pod运行状态,一切正常时，将一些type改为NodePort*
 ```
 将granfana nodeport 改为30030
 将alertmanager-main nodeport 改为30093
