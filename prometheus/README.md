@@ -30,4 +30,4 @@ prometheus-k8s          NodePort    10.1.10.166    <none>        9090:30090/TCP 
 prometheus-operated     ClusterIP   None           <none>        9090/TCP                     37m
 prometheus-operator     ClusterIP   None           <none>        8080/TCP                     38m
 ```
-# 登录granfana， 默认用户名密码:  admin/admin
+# 登录grafana， 默认用户名密码:  admin/admin
