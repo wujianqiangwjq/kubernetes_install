@@ -1,7 +1,7 @@
 # prometheus 的安装有多种方式
 + 二进制安装
 + prometheus operator(coreos出的),operator只是管理prometheus, prometheus还需要另外安装的。
-+ kube-prometheus (其中包含有grafana, prometheus ,alter-manager)
++ kube-prometheus (其中包含有grafana, prometheus ,alter-manager, prometheus operator,...)
 
 这里介绍kube-prometheus安装,当前环境
 + kubectl  1.15.0
