@@ -43,4 +43,5 @@ prometheus-operator     ClusterIP   None           <none>        8080/TCP       
 ```
 + 我选择在gpu-monitoring-tools/exporters/prometheus-dcgm/k8s/node-exporter下的gpu-only-node-exporter-daemonset.yaml
 > 可能需要修改一点
-+ 为其添加service
++ 为其添加service, 如gpu-service.yaml
++ 为其编写serviceMonitor 如gpu-serviceMonitor.yaml
