@@ -31,3 +31,16 @@ prometheus-operated     ClusterIP   None           <none>        9090/TCP       
 prometheus-operator     ClusterIP   None           <none>        8080/TCP                     38m
 ```
 # 登录grafana， 默认用户名密码:  admin/admin
+
+
+### 如何添加serviceMonitor，添加GPU为例
+> GPU监控官方推荐使用DCGM(datacenter gpu manager)
++ *download: https://github.com/NVIDIA/gpu-monitoring-tools.git*
+## 添加步骤：
++ 为gpu节点打label
+```
+ kubectl label nodes wjqmaster hardware-type=NVIDIAGPU
+```
++ 我选择在gpu-monitoring-tools/exporters/prometheus-dcgm/k8s/node-exporter下的gpu-only-node-exporter-daemonset.yaml
+> 可能需要修改一点
++ 为其添加service
