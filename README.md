@@ -201,6 +201,7 @@ kubernetes-dashboard   NodePort    10.1.11.190   <none>        443:32459/TCP    
 ```
 kubectl apply -f ingress-nginx.yaml
 ```
+https://kubernetes.github.io/ingress-nginx/deploy/#prerequisite-generic-deployment-command
 # check ingress
 ```
 kubectl  get pod -n ingress-nginx
