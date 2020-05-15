@@ -89,6 +89,7 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 + install flannel
 ```
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/a70459be0084506e4ec919aa1c114638878db11b/Documentation/kube-flannel.yml
+update:  https://raw.githubusercontent.com/coreos/flannel/v0.12.0/Documentation/kube-flannel.yml
 ```
 + add new node to the cluster on all nodes
 ```
