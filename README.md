@@ -23,6 +23,8 @@ cat << EOF > /etc/hosts
 192.168.0.3 k8s-node
 192.168.0.4 k8s-node2
 EOF
+
+modprobe br_netfilter
 ```
 + open traffic forwarding
 ```
