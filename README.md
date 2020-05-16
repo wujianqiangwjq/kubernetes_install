@@ -23,8 +23,6 @@ cat << EOF > /etc/hosts
 192.168.0.3 k8s-node
 192.168.0.4 k8s-node2
 EOF
-
-modprobe br_netfilter
 ```
 + open traffic forwarding
 ```
@@ -33,7 +31,7 @@ net.bridge.bridge-nf-call-ip6tables = 1
 net.bridge.bridge-nf-call-iptables = 1
 net.ipv4.ip_forward = 1
 EOF
-
+modprobe br_netfilter
 sysctl --system
 
 ipvs: to ensure that It'ok between the Service network and pod network
@@ -77,7 +75,7 @@ yum install -y kubelet-1.18.0 kubeadm-1.18.0 kubectl-1.18.0
 ```
 kubeadm init \
   --apiserver-advertise-address=192.168.0.2 \
-  --kubernetes-version v1.15.0 \
+  --kubernetes-version v1.18.0 \
   --service-cidr=10.1.0.0/16 \
   --pod-network-cidr=10.244.0.0/16
   
@@ -85,7 +83,7 @@ kubeadm init \
   kubeadm init \
   --apiserver-advertise-address=192.168.0.2 \
   --image-repository registry.aliyuncs.com/google_containers \
-  --kubernetes-version v1.15.0 \
+  --kubernetes-version v1.18.0 \
   --service-cidr=10.1.0.0/16 \
   --pod-network-cidr=10.244.0.0/16
 
