@@ -35,6 +35,18 @@ net.ipv4.ip_forward = 1
 EOF
 
 sysctl --system
+
+ipvs: to ensure that It'ok between the Service network and pod network
+cat > /etc/sysconfig/modules/ipvs.modules <<EOF
+ #!/bin/bash 
+ modprobe -- ip_vs 
+ modprobe -- ip_vs_rr 
+ modprobe -- ip_vs_wrr 
+ modprobe -- ip_vs_sh 
+ modprobe -- nf_conntrack_ipv4 
+EOF
+bash /etc/sysconfig/modules/ipvs.modules && lsmod | grep -e ip_vs -e nf_conntrack_ipv4
+
 ```
 # install kubernetes
 + prepare the resources of docker and kubernetes (k8s-master, k8s-node1, k8s-node2)
@@ -58,7 +70,7 @@ yum makecache
 yum -y install docker-ce
 systemctl enable docker
 systemctl start docker
-yum install -y kubelet-1.14.0 kubeadm-1.14.0 kubectl-1.14.0
+yum install -y kubelet-1.18.0 kubeadm-1.18.0 kubectl-1.18.0
 ```
 # configure the cluster of kubernetes
 + on the master node(k8s-master)
@@ -88,11 +100,20 @@ mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
-+ install flannel
+
++ change the proxy mode  to ipvs
+```
+kubectl edit cm kube-proxy -n kube-system
+mode: "ipvs"
+```
++ install flannel  or calico
 ```
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/a70459be0084506e4ec919aa1c114638878db11b/Documentation/kube-flannel.yml
 update:  https://raw.githubusercontent.com/coreos/flannel/v0.12.0/Documentation/kube-flannel.yml
+
+kubectl apply -f https://docs.projectcalico.org/v3.14/manifests/calico.yaml
 ```
+
 + add new node to the cluster on all nodes
 ```
 (k8s-node1, k8s-node2)
